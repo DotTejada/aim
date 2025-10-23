@@ -14,7 +14,6 @@ int main(int argc, char *argv[]) {
     char* color_flag = argv[3];
 
     char brightness_table[10] = {' ', '.', ':', '-', '=', '+', '*', '#', '%', '@'};
-    int width, height, channels;
 
     int color_channels;
     if (strcmp(color_flag, "-g") == 0) {
@@ -23,7 +22,10 @@ int main(int argc, char *argv[]) {
         color_channels = STBI_rgb_alpha;
     } else {
         printf("Invalid color flag. Need -g or -c.\n");
+        exit(1);
     }
+
+    int width, height, channels;
     unsigned char *data = stbi_load(filename, &width, &height, &channels, color_channels);
     if (!data) { 
         printf("Couldn't load file data\n"); 
@@ -59,7 +61,7 @@ int main(int argc, char *argv[]) {
         // Y = 0.299R + 0.587G + 0.114B
         // make sure to take alpha into account
         // apply color with
-        // 16 + 36 × r + 6 × g + b (0 ≤ r, g, b ≤ 5)
+        // ID = 16 + 36 × r + 6 × g + b (0 ≤ r, g, b ≤ 5)
         // print with
         // \x1b[38;5;{ID}m{Char}\x1b[0m
         for (int i = 0; i < scaled_height; i++) {
@@ -82,6 +84,7 @@ int main(int argc, char *argv[]) {
             printf("\n");
         }
     } else {
+        printf("Unreachable!\n");
     }
 
     stbi_image_free(data_scaled);
