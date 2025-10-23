@@ -3,11 +3,10 @@
 #include "stb_image.h"
 #define STB_IMAGE_RESIZE_IMPLEMENTATION
 #include "stb_image_resize2.h"
-//#define STB_IMAGE_WRITE_IMPLEMENTATION
-//#include "stb_image_write.h"
 
 int main(int argc, char *argv[]) {
     if (argc < 4) {
+        printf("Usage: ./aim <filename> <target width> < -g | -c > (grayscale or colored)\n");
         exit(1);
     }
     char* filename = argv[1];
@@ -22,6 +21,8 @@ int main(int argc, char *argv[]) {
         color_channels = STBI_grey_alpha;
     } else if (strcmp(color_flag, "-c") == 0) {
         color_channels = STBI_rgb_alpha;
+    } else {
+        printf("Invalid color flag. Need -g or -c.\n");
     }
     unsigned char *data = stbi_load(filename, &width, &height, &channels, color_channels);
     if (!data) { 
