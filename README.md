@@ -8,9 +8,11 @@ Usage: ./aim \<filename> \<target width> < -g | -c > (grayscale or colored)
 
 Some examples:
 
+The Wikipedia dice png:
+
 ./aim dice.png 200 -g
 
-![Wikipedia dice png](dice.png)
+![Wikipedia dice png](/images/dice.png)
 
                                                                                                                                                                                                         
                                                                                                                                                                                                         
@@ -73,11 +75,13 @@ Some examples:
                                                                                                                                                                                                         
                                                                                                                                                                                                         
 
+C.Viper from Street Fighter:
+
 ./aim viper.png 200 -c
 
-![C.Viper Street Fighter](viper.png)
+![C.Viper Street Fighter](/images/viper.png)
 
-![C.Viper Colored Ascii Art](viper_colored_ascii.png)
+![C.Viper Colored Ascii Art](/images/viper_colored_ascii.png)
 
 Uses header files from stb.
 
