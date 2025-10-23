@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
         exit(1); 
     }
 
-    int scaled_height = ((float)height / (float)width) * (float)scaled_width / 2;
+    int scaled_height = ((float)height / (float)width) * (float)scaled_width / 2.5;
 
     unsigned char *data_scaled = stbir_resize_uint8_srgb(data,  width,  height,  0,
                                                          0, scaled_width, scaled_height, 0,
